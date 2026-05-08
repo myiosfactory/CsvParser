@@ -46,7 +46,6 @@ export function sectionize(input: string | Buffer, filename?: string): Map<strin
   return sections;
 }
 
-/** Case-insensitive lookup that tries multiple alias names; returns first hit. */
 export function getCell(row: SectionRow, ...aliases: string[]): string | undefined {
   for (const a of aliases) {
     const idx = row.headerMapLower[normalizeKey(a)];
@@ -58,7 +57,6 @@ export function getCell(row: SectionRow, ...aliases: string[]): string | undefin
   return undefined;
 }
 
-/** Find a section by any of the given names (case-insensitive). */
 export function findSection(
   sections: Map<string, Section>,
   ...aliases: string[]

@@ -1,5 +1,3 @@
-// --- Section primitives (produced by io/sectionize) -------------------------
-
 export type RowKind = "Header" | "Data" | "Total" | "SubTotal" | "Notes";
 
 export interface SectionRow {

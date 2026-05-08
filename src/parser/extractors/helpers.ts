@@ -5,7 +5,6 @@ export function dataRows(section: Section | undefined): SectionRow[] {
   return section ? section.rows.filter((r) => r.kind === "Data") : [];
 }
 
-/** Collapse a "Field name / Field value" key-value section into a Map. */
 export function kvMap(section: Section | undefined): Map<string, string> {
   const out = new Map<string, string>();
   for (const row of dataRows(section)) {
@@ -16,7 +15,6 @@ export function kvMap(section: Section | undefined): Map<string, string> {
   return out;
 }
 
-/** Look up the first non-empty value among the given keys (case-insensitive). */
 export function lookup(kv: Map<string, string>, ...keys: string[]): string | null {
   for (const k of keys) {
     const v = kv.get(k.toLowerCase());

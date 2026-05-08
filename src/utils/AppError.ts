@@ -1,7 +1,3 @@
-/**
- * Operational error with an HTTP status code.
- * Throw these from controllers/services to produce a clean 4xx/5xx response.
- */
 export class AppError extends Error {
   public readonly statusCode: number;
   public readonly data: null;

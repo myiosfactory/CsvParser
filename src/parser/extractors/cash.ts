@@ -5,11 +5,6 @@ import { SEC } from "./constants.js";
 
 export type CashSummary = DynamicRow;
 
-/**
- * Cash row from the Net asset value section, fully dynamic — every column the
- * CSV declares flows through (camelCased). The base currency is appended from
- * Account information so consumers know what unit `currentTotal` is in.
- */
 export function extractCash(
   sections: SectionMap,
   account: AccountInfo,

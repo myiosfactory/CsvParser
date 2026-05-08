@@ -5,7 +5,6 @@ import { SEC } from "./constants.js";
 
 export type OptionContract = DynamicRow;
 
-/** Open-positions rows where Asset category = Options. Fully dynamic — every CSV column flows through. */
 export function extractOptionContracts(sections: SectionMap): OptionContract[] {
   const section = findSection(sections, ...SEC.positions);
   if (!section) return [];

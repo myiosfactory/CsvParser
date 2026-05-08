@@ -1,4 +1,3 @@
-/** Section-name aliases (English / German variants of IB statements). */
 export const SEC = {
   statement: ["Statement"],
   account: ["Account information", "Account Information", "Kontoinformation"],

@@ -1,8 +1,3 @@
-/**
- * Standard success-response envelope.
- * Use `AppResponse.send(res, statusCode, data, message)` from controllers
- * to keep response shape consistent across endpoints.
- */
 export class AppResponse<T = unknown> {
   public readonly success: boolean;
   public readonly message: string;
@@ -19,7 +14,6 @@ export class AppResponse<T = unknown> {
     this.data = data
   }
 
-  /** Build the envelope and send it in one call. */
   static send<T>(
     res: import("express").Response,
     statusCode: number,
