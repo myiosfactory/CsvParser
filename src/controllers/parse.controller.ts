@@ -6,6 +6,13 @@ import { AppResponse } from "../utils/AppResponse.js";
 export const parseController = {
   parse(req: Request, res: Response): void {
     const files = (req.files as Express.Multer.File[] | undefined) ?? [];
+
+    if (files.length > 1) {
+      throw AppError.badRequest(
+        `Only one file is allowed per request, but received ${files.length}.`,
+      );
+    }
+
     const file = files[0];
 
     let input: string | Buffer | null = null;
