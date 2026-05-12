@@ -48,9 +48,12 @@ export interface Nav {
 export type DynamicRow = Record<string, string | number | null>;
 export type CashSummary = DynamicRow;
 
+import type { ForexPositionsSummary } from "./extractors/positions.js";
+
 export interface PositionsResult {
   openPositions: DynamicRow[];
   foreignExchangePositions: DynamicRow[];
+  summary: ForexPositionsSummary | null;
 }
 
 import type { OptionContract } from "./extractors/optionContracts.js";

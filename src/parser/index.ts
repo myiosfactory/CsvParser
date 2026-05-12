@@ -37,9 +37,16 @@ export function parseIbStatement(input: string | Buffer, filename?: string): Par
   const cash = safe(() => extractCash(sections, account, nav), warnings, "cash", {
     currency: account.baseCurrency,
   });
+  const forex = safe(
+    () => extractForeignExchangePositions(sections),
+    warnings,
+    "foreignExchangePositions",
+    { positions: [], summary: null },
+  );
   const positions = {
     openPositions: safe(() => extractOpenPositions(sections), warnings, "openPositions", []),
-    foreignExchangePositions: safe(() => extractForeignExchangePositions(sections), warnings, "foreignExchangePositions", []),
+    foreignExchangePositions: forex.positions,
+    summary: forex.summary,
   };
   const transactions = safe(() => extractTransactions(sections), warnings, "transactions", []);
   const optionContracts = safe(() => extractOptionContracts(sections), warnings, "optionContracts", []);

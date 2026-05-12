@@ -10,10 +10,6 @@ interface ErrorBody {
   data: null;
 }
 
-/**
- * Global error handler. Must be the LAST middleware mounted.
- * Maps known error types to clean HTTP responses; hides internals in production.
- */
 export function errorHandler(
   err: unknown,
   _req: Request,
